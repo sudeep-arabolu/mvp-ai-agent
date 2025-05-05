@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.py[cod]
+.env
+
+# Node (if you later add React code here)
+frontend/node_modules/
+frontend*/node_modules/
+build/
