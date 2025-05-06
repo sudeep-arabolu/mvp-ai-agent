@@ -66,6 +66,19 @@ This MVP fuses **warehouse accuracy** with **LLM reasoning**:
 - **Microservices**: Independent services for each concern-retrieval, embedding, orchestration, UI.
 
 ---
+## 🗂️ Technology Stack
+
+| Layer          | Technology                                |
+| -------------- | ----------------------------------------- |
+| API / Agent    | FastAPI • LangChain (SQL + Vector router) |
+| LLM            | Claude 3 Haiku (Bedrock)                  |
+| Embeddings     | Cohere v3 Large (Bedrock)                 |
+| Warehouse      | Aurora PostgreSQL                         |
+| Vector Index   | pgvector (HNSW)                           |
+| Background Job | Python → Lambda or cron                   |
+| Front-end      | React 18 + hooks, SSE streaming           |
+
+---
 ## 🖼️  Architecture
 
 ```mermaid
