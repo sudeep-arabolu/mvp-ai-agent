@@ -36,7 +36,36 @@ This MVP fuses **warehouse accuracy** with **LLM reasoning**:
 | **Fast POC → easy prod** | Same FastAPI code runs on laptop, Lambda, or Fargate. |
 
 ---
+## 🏗️ System Design Principles
 
+- **Data Ingestion Pipeline**  
+  Raw data lands in S3, is processed by an hourly Lambda into a staging schema, then loaded into Aurora’s star schema for analytics.
+
+- **Hybrid Agent Architecture**  
+  Combines a reactive layer (instant SQL lookups) with a deliberative layer (semantic search + LLM synthesis) for speed and depth.
+
+- **Tool Use Pattern**  
+  Agent dynamically chooses SQL or vector search per question, enabling plug-and-play integrations via config.
+
+- **Modularity & Scalability**  
+  Retrieval, embedding, orchestration, and UI are independent services-easy to replace, scale, and maintain.
+
+- **Observability & Robustness**  
+  Centralized logging, version-pinned LLMs, and secure secrets management ensure reliability in production.
+
+- **User-Centric Design**  
+  Explainable responses build trust and engagement
+
+--- 
+## 🧩 Design Patterns Used
+
+- **Ingestion Pipeline Pattern**: Raw data in S3 → staging schema via Lambda → analytics schema in Aurora.
+- **Hybrid Agent**: Reactive + deliberative layers for precise KPIs and rich context.  
+- **Tool Use**: Dynamic routing to SQL or vector tools; config-driven integration points.  
+- **Planning**: Multi-step decomposition for complex queries (aggregate metrics → contextualize).  
+- **Microservices**: Independent services for each concern-retrieval, embedding, orchestration, UI.
+
+---
 ## 🖼️  Architecture
 
 ```mermaid
@@ -60,3 +89,5 @@ flowchart TD
         DB -.-> EMBJOB
         EMBJOB -.-> VEC
     end
+
+
