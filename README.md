@@ -18,6 +18,7 @@ Conversational assistant that answers portfolio / program / project questions by
 
 ## 🖼️  Architecture
 
+```mermaid
 flowchart TD
     %% ─── Front‑end ─────────────────────────────────────────
     subgraph Browser
